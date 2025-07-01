@@ -3,9 +3,6 @@ package com.educandoweb.course.entities;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -29,7 +26,6 @@ public class Product implements Serializable {
 	private String imgUrl;
 	
 	@ManyToMany
-	@JsonIgnore
 	@JoinTable(name = "tb_product_category", joinColumns = @JoinColumn(name = "product_id")
 			,inverseJoinColumns = @JoinColumn(name ="category_id") )
 	private Set<Category> categories = new HashSet<>();
